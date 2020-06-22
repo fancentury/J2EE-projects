@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>云+-首页</title>
+
+		<link rel="stylesheet" th:href="@{/amazeui/assets/css/amazeui.css}"/>
+		<script  th:src="@{/amazeui/assets/js/jquery.min.js}"></script>
+		<script  th:src="@{/amazeui/assets/js/amazeui.js}"></script>
+		<script  th:src="@{/amazeui/pagination/amazeui-pagination.js}"></script>
+
+	</head>
+	<body>
+	<!--页头-->
+	<nav data-am-widget="menu" class="am-menu  am-menu-default">
+		<a href="javascript: void(0)" class="am-menu-toggle">
+			<i class="am-menu-toggle-icon am-icon-bars"></i>
+		</a>
+		<ul class="am-menu-nav am-avg-sm-3">
+			<li class="am-parent">
+				<a href="##" >租房</a>
+				<ul class="am-menu-sub am-collapse  am-avg-sm-2 ">
+					<li>
+						<a href="/home/list" >租房</a>
+					</li>
+				</ul>
+			</li>
+			<li class="am-parent">
+				<a href="##" >个人中心</a>
+				<ul class="am-menu-sub am-collapse  am-avg-sm-3 ">
+					<li>
+						<a href="##" >登录</a>
+					</li>
+					<li>
+						<a href="##" >注册</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+
+	<!--  轮播图 -->
+		<div class="am-slider am-slider-default"
+				data-am-flexslider="{controlNav: 'thumbnails', directionNav: true, slideshow: true}">
+			<ul class="am-slides">
+				<li data-thumb="/home/index/1.jpg">
+					<img src="/home/index/1.jpg" />
+				</li>
+				<li data-thumb="/home/index/2.jpg">
+					<img src="/home/index/2.jpg" />
+				</li>
+				<li data-thumb="/home/index/3.jpg">
+					<img src="/home/index/3.jpg" />
+				</li>
+				<li data-thumb="/home/index/4.jpg">
+					<img src="/home/index/4.jpg" />
+				</li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

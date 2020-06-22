@@ -1,0 +1,276 @@
+body {
+	list-style: none;
+	background-color: #f1f1f1;
+}
+
+.hp-fl {
+	float: left;
+}
+
+.hp-fr {
+	float: right;
+}
+
+.hp-top-header {
+	background-color: #39ac6a;
+	border-color: #39ac6a;
+}
+
+.hp-topbar-brand {
+	padding: 0 30px;
+	float: left;
+	font-size: 2.6rem;
+	height: 50px;
+	line-height: 50px;
+}
+
+.hp-about-item a:hover {
+	background-color: #39ac6a !important;
+}
+
+.hp-ul-list .li-item>a{
+   text-decoration:none;
+    out-line: none;
+    color:black;
+}
+.hp-ul-list .li-item>a:hover{
+	 color:#39ac6a;
+	 text-decoration: underline;
+}
+
+
+.hp-query-item {}
+.hp-ul-list li {
+	list-style-type: none;
+	float: left;
+	margin-left: 10px;
+}
+.hp-ul-list .li-mark {
+	font-weight: 700;
+}
+.hp-ul-list .li-select {
+	color: #39ac6a;
+	font-weight: 700;
+}
+.hp-query-area {
+	width: 90%;
+	margin: 0 auto;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	background-color: #fff;
+	padding-bottom: 10px;
+}
+.hp-body-area {
+	margin-top: 10px;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	padding: 10px;
+}
+.hp-home-img-item {
+	border-bottom: 1px dotted #e1e1e1;
+}
+.hp-home-img-item .hp-img {
+	padding: 10px;
+}
+.hp-img img:hover {
+	transform: scale(1.15);
+	transition: all 1s ease 0s;
+	-webkit-transform: scale(1.15);
+	-webkit-transform: all 1s ease 0s;
+}
+.hp-am-circle-img {
+	margin-right: 30px;
+}
+.hp-am-circle {
+	width: 50px;
+	height: 50px;
+}
+.hp-home-title {
+	display: block;
+	width: 280px;
+	font-size: 14px;
+	color: #333;
+	font-family: "microsoft yahei";
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.hp-home-type-mark {
+	color: #959ea7;
+	display: block;
+	font-size: 12px;
+}
+.hp-home-price {
+	font-size: 28px;
+	vertical-align: baseline;
+	font-family: "arial";
+	margin-left: 50px;
+}
+
+/*================================================================================================
+ * 
+ *    房屋详情信息
+ * 
+================================================================================================*/
+.hp-detail-body {
+	/*width: 50%;margin: 0 auto;*/
+}
+.hp-detail-title {
+	font-size: 24px;
+	font-weight: normal;
+	padding-bottom: 0;
+	line-height: 26px;
+	display: inline-block;
+	max-width: 531px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.hp-detail-title-address {
+	color: #f05b72;
+	font: normal 14px/24px "Microsoft YaHei";
+}
+.top-blue-slide {
+	background: #4390EE;
+	line-height: 420px;
+	color: #fff;
+	font-size: 36px;
+	text-align: center;
+}
+.buttom-swiper-slide {
+	line-height: 100px;
+	color: #fff;
+	font-size: 36px;
+	text-align: center;
+	background: #4390EE;
+	width: 25%;
+}
+.hp-detail-imgs-area {
+	width: 737px;
+}
+.hp-swiper-top-img {
+	width: 737px;
+}
+.hp-swiper-buttom-img {
+	margin-top: 10px;
+}
+
+/*sliderPro*/
+.slider-pro {
+	font-family: 'Open Sans', Arial;
+}
+#slider-pro .sp-selected-thumbnail {
+	border: 4px solid #000;
+}
+.sp-next-thumbnail-arrow:after,
+.sp-next-thumbnail-arrow:before,
+.sp-previous-thumbnail-arrow:after,
+.sp-previous-thumbnail-arrow:before {
+	content: '';
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	background-color: #333333;
+}
+.hp-detail-info-area {
+	margin-top: 10px;
+}
+.hp-info-box {
+	height: 170px;
+	padding: 25px 0 25px 5px;
+	background: #fff;
+}
+.hp-icon-fwsm {
+	width: 46px;
+	height: 60px;
+	background: url(../img/jihe.png) no-repeat 0 -1719px;
+	display: inline-block;
+}
+.hp-icon-ptss {
+	width: 60px;
+	height: 58px;
+	background: url(../img/jihe.png) no-repeat 0 -1974px;
+	display: inline-block;
+}
+.hp-icon-jtqk {
+	width: 50px;
+	height: 60px;
+	background: url(../img/jihe.png) no-repeat 0 -1845px;
+	display: inline-block;
+}
+.hp-info-box .box-title {
+	text-align: center;
+	padding-left: 20px;
+}
+.hp-box-content {
+	display: table-cell;
+	vertical-align: middle;
+	height: 114px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.hp-info-box .box-title p {
+	font-size: 22px;
+	color: #a5b0ba;
+	/*padding-top: 15px;*/
+	
+	margin: 7px;
+}
+.hp-detail-price-area {
+	padding: 5px;
+	width: 300px;
+}
+.hp-detail-price {
+	margin-top: 60px;
+	background-color: #FFF;
+	padding: 15px;
+}
+.hp-price-btn {
+	padding: 10px;
+}
+.hp-detail-price .price-span {
+	font-size: 36px;
+	color: #f05b72;
+	padding: 10px;
+}
+.hp-name .name {
+	margin: 25px;
+	text-align: center;
+}
+.hp-img-person {
+	margin-left: 28px;
+}
+.hp-im-chat {
+	text-align: center;
+	border-top: 1px solid gainsboro;
+	
+}
+.hp-im-chat a {
+	margin-top: 15px;
+	text-decoration: none;
+	display: inline-block;
+	color: #f05b72;
+}
+.hp-comment-area {
+	margin-top: 10px;
+	background-color: #FFFFFF;
+}
+.hp-comment-area-top {
+	height: 70px;
+	padding: 20px;
+	text-align: center;
+}
+.hp-comment-item {
+	padding: 10px;
+	border-bottom: 1px solid gainsboro;
+}
+.hp-comment-area-top-mark {
+	background-color: #f1f1f1;
+	font: normal 14px/24px "Microsoft YaHei";
+}
+.hp-comment-name {
+	margin-left: 15px;
+}
+.hp-comment-time {
+	color: #a5b0ba;
+}
+textarea::-webkit-input-placeholder {text-align: center;padding-top:45px}

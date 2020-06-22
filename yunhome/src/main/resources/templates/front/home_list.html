@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+		<title>云+-房屋页</title>
+
+	<link rel="stylesheet" th:href="@{/home/css/hp.css}" />
+	<link rel="stylesheet" th:href="@{/amazeui/assets/css/amazeui.css}"/>
+	<script  th:src="@{/amazeui/assets/js/jquery.min.js}"></script>
+	<script  th:src="@{/amazeui/assets/js/amazeui.js}"></script>
+	<script  th:src="@{/amazeui/pagination/amazeui-pagination.js}"></script>
+</head>
+<body>
+		<div class="hp-container">
+<!--1.页头-->
+			<nav data-am-widget="menu" class="am-menu  am-menu-default">
+				<a href="javascript: void(0)" class="am-menu-toggle">
+					<i class="am-menu-toggle-icon am-icon-bars"></i>
+				</a>
+				<ul class="am-menu-nav am-avg-sm-3">
+					<li class="am-parent">
+						<a th:href="@{/front}" >首页</a>
+						<ul class="am-menu-sub am-collapse  am-avg-sm-2 ">
+							<li>
+								<a th:href="@{/front}" >首页</a>
+							</li>
+						</ul>
+					</li>
+					<li class="am-parent">
+						<a href="##" >租房</a>
+						<ul class="am-menu-sub am-collapse  am-avg-sm-2 ">
+							<li>
+								<a href="/home/list" >租房</a>
+							</li>
+						</ul>
+					</li>
+					<li class="am-parent">
+						<a href="##" >个人中心</a>
+						<ul class="am-menu-sub am-collapse  am-avg-sm-3 ">
+							<li>
+								<a href="##" >登录</a>
+							</li>
+							<li>
+								<a href="##" >注册</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+<!--2.查询条件区域-->
+			<div class="hp-query-area">
+				<!--城区-->
+				<div class="am-g">
+					<div class="hp-query-item">
+						<ul class="hp-ul-list">
+							<li class="li-mark">区域:</li>
+							<li class="li-select"><a href="javascript:;" key='district_id'>不限</a></li>
+								<li th:each="district:${districts}" class="li-item" key='district_id'>
+									<a th:value="${district.did}"  th:text="${district.disName}"></a>
+								</li>
+						</ul>
+					</div>
+				</div>
+				<!--租金-->
+				<div class="am-g">
+					<div class="hp-query-item">
+						<ul class="hp-ul-list">
+							<li class="li-mark">租金:</li>
+							<li class="li-select"><a href="javascript:;" key='price'>不限</a></li>
+							<li class="li-item" key='price'>
+								<a value='1-500' href="javascript:;">500元以下</a>
+							</li>
+							<li class="li-item" key='price'>
+								<a value='500-800' href="javascript:;">500-800元</a>
+							</li>
+							<li class="li-item" key='price'>
+								<a value='800-1000' href="javascript:;">800-1000元</a>
+							</li>
+							<li class="li-item" key='price'>
+								<a value='1000-1300' href="javascript:;">1000-1300元</a>
+							</li>
+							<li class="li-item" key='price'>
+								<a value='1300-1500' href="javascript:;">1300-1500元</a>
+							</li>
+							<li class="li-item" key='price'>
+								<a value='900-1000' href="javascript:;">1500-2000元</a>
+							</li>
+							<li class="li-item" key='price'>
+								<a value='1500-2000' href="javascript:;">2000元以上</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--面积搜索-->
+				<div class="am-g">
+					<div class="hp-query-item">
+						<ul class="hp-ul-list">
+							<li class="li-mark">面积:</li>
+							<li class="li-select"><a href="javascript:;" key='area'>不限</a></li>
+							<li class="li-item" key='area'>
+								<a value='1-30' href="javascript:;">30平米以下</a>
+							</li>
+							<li class="li-item" key='area'>
+								<a value='30-50' href="javascript:;">30-50平</a>
+							</li>
+							<li class="li-item" key='area'>
+								<a value='50-70' href="javascript:;">50-70平</a>
+							</li>
+							<li class="li-item" key='area'>
+								<a value='70-90' href="javascript:;">70-90平</a>
+							</li>
+							<li class="li-item" key='area'>
+								<a value='90-110' href="javascript:;">90-110平</a>
+							</li>
+							<li class="li-item" key='area'>
+								<a value='110-130' href="javascript:;">110-130平</a>
+							</li>
+							<li class="li-item" key='area'>
+								<a value='130-1000' href="javascript:;">130平以上</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--房型-->
+				<div class="am-g">
+					<div class="hp-query-item">
+						<ul class="hp-ul-list">
+							<li class="li-mark">房型:</li>
+							<li class="li-select"><a href="javascript:;" key='type_id'>不限</a></li>
+							<li class="li-item" key='type_id' th:each="type:${types}">
+								<a   href="javascript:;" th:value="${type.typeid}" th:text="${type.typedesc}">一室</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="am-g">
+					<div class="hp-query-item">
+						<ul class="hp-ul-list">
+							<li class="li-mark" style="margin-top: 5px;">筛选条件:</li>
+							<li>
+								<div id="query-div">
+									<!--查询条件的显示  -->
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+<!--3.房源展示区域-->
+			<div class="hp-body-area">
+				<div class="am-g">
+					<ul id="home-list-ul" class="am-avg-lg-4 am-thumbnails">
+						<!--<li class="hp-home-img-item" th:each="home:${homeInfo.list}">
+							<div class="hp-img">
+								<a href="#">
+									<img class="am-thumbnail" th:src="${home.imgs}" />
+								</a>
+								<div>
+									<div class="hp-fl">
+										<div>
+											<span class="hp-home-title" th:text="${home.title}"></span>
+										</div>
+										<div>
+											<span class="hp-home-type-mark" th:text="${home.mark}">
+												<span class="hp-home-price" th:text="${home.price}+'元/月'"></span>
+											</span>
+										</div>
+									</div>
+									<div class="hp-fr hp-am-circle-img">
+										<img th:src="${home.users.headImg}" class="am-circle hp-am-circle" />
+									</div>
+								</div>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<!--分页部分-->
+		<div class="am-g">
+			<div class="am-u-sm-4 am-u-sm-centered">
+				<ul class="am-pagination">
+
+				</ul>
+			</div>
+		</div>
+
+
+
+	</body>
+<script th:src="@{/home/js/home_list.js}"></script>
+<script>
+	init();
+</script>
+</html>

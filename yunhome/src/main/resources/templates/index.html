@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+<h3>
+    <span sec:authentication="name"></span>您好，欢迎您！您的角色是：
+    <span sec:authentication="principal.authorities"></span>
+</h3>
+
+
+<h3 sec:authorize = "hasAuthority('房东')">
+    <a th:href="@{/admin}">访问后台</a>
+</h3>
+
+<h3><a th:href="@{/front}">访问前台</a></h3>
+
+</body>
+</html>

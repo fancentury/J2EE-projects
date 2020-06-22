@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/amazeui/assets/css/amazeui.css}"/>
+    <script  th:src="@{/amazeui/assets/js/jquery.min.js}"></script>
+    <script  th:src="@{/amazeui/assets/js/amazeui.js}"></script>
+    <script  th:src="@{/amazeui/pagination/amazeui-pagination.js}"></script>
+</head>
+<body>
+<span><a th:href="@{/admin}">返回</a></span>
+<h1 style="text-align: center">用户信息表</h1>
+<!--相关属性见 http://amazeui.shopxo.net/css/grid/ -->
+<div class="am-g">
+    <div class="am-u-lg-8 am-u-lg-centered">
+        <!--相关属性见 http://amazeui.shopxo.net/css/table/ -->
+        <table class="am-table am-table-bordered am-table-striped  am-table-hover am-table-centered">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>性别</th>
+                <th>生日</th>
+                <th>头像</th>
+                <th>角色</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="users:${pageInfo.list}">
+                <td th:text="${users.uid}"></td>
+                <td th:text="${users.name}"></td>
+                <td th:text="${users.psw}"></td>
+                <td th:text="${users.sex}"></td>
+                <td th:text="${#dates.format(users.birth,'yyyy-MM-dd')}"></td>
+                <td><img th:src="${users.headImg}" th:width="100px" th:height="100px"></td>
+                <td th:text="${users.role}"></td>
+                <!--<td><a th:href="/users/delete/${users.uid}">删除</a></td>-->
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- 分页位标  区域 http://amazeui.shopxo.net/css/pagination/  -->
+
+<div class="am-container">
+    <ul class="am-pagination am-pagination-centered">
+    </ul>
+</div>
+
+<input type="hidden" id="pages"   th:value="${pageInfo.pages}" />
+<input type="hidden" id="pageNum" th:value="${pageInfo.pageNum}" />
+</body>
+<script>
+    var pages=$("#pages").val();
+    var pageNum=$("#pageNum").val();
+
+    var pagination = new Pagination({
+        wrap: $('.am-pagination'),//存放分页内容
+        count: pages,//总页数
+        current: pageNum,//当前页
+        prevText: '上一页', // prev 按钮的文本内容
+        nextText: '下一页', // next 按钮的文本内容
+        callback: function (current) { // 每一个页数按钮的回调事件
+            console.log(current)
+            //location.href="/users/show?pageNo="+current;
+            $("#admin-content").load("/users/show?pageNo="+current)
+        }
+    });
+
+
+</script>
+</html>

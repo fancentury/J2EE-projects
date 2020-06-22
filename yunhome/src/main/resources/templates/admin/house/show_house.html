@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入amazeui -->
+    <link rel="stylesheet" th:href="@{/amazeui/assets/css/amazeui.css}"/>
+    <script  th:src="@{/amazeui/assets/js/jquery.min.js}"></script>
+    <script  th:src="@{/amazeui/assets/js/amazeui.js}"></script>
+    <script  th:src="@{/amazeui/pagination/amazeui-pagination.js}"></script>
+</head>
+<body>
+<span><a th:href="@{/admin}">返回</a></span>
+<h1 style="text-align: center">房源信息表</h1>
+<!--相关属性见 http://amazeui.shopxo.net/css/grid/ -->
+<div class="am-g">
+    <div class="am-u-lg-10 am-u-lg-centered">
+        <!--相关属性见 http://amazeui.shopxo.net/css/table/ -->
+        <table class="am-table am-table-bordered am-table-striped  am-table-hover am-table-centered ">
+            <tr>
+                <th>编号</th>
+                <th>房东</th>
+                <th>区域</th>
+                <th>房型</th>
+                <th>价格</th>
+                <th>面积</th>
+                <th>标题</th>
+                <th>标签</th>
+                <th>配备</th>
+                <th>地址</th>
+                <th>图片</th>
+                <th>操作|<a href="/house/addPage">新增房源</a> </th>
+            </tr>
+            <tr th:each="house:${houseInfo.list}">
+                <td th:text="${house.hid}"></td>
+                <td th:text="${house.users.name}"></td>
+                <td th:text="${house.district.disName}"></td>
+                <td th:text="${house.houseType.typedesc}"></td>
+                <td th:text="${house.price}"></td>
+                <td th:text="${house.areas}"></td>
+                <td th:text="${house.title}"></td>
+                <td th:text="${house.mark}"></td>
+                <td th:text="${house.equipment}"></td>
+                <td th:text="${house.address}"></td>
+                <td><img th:src="${house.imgs}" th:width="300px" th:height="250px"></td>
+                <td><a href="">修改|</a><a th:href="@{'/house/delete/'+ ${house.hid} }">删除</a> </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- 分页位标  区域 http://amazeui.shopxo.net/css/pagination/  -->
+
+<div class="am-container">
+    <ul class="am-pagination am-pagination-centered">
+    </ul>
+</div>
+
+<input type="hidden" id="pages"   th:value="${houseInfo.pages}" />
+<input type="hidden" id="pageNum" th:value="${houseInfo.pageNum}" />
+</body>
+<script>
+    var pages=$("#pages").val();
+    var pageNum=$("#pageNum").val();
+
+    var pagination = new Pagination({
+        wrap: $('.am-pagination'),//存放分页内容
+        count: pages,//总页数
+        current: pageNum,//当前页
+        prevText: '上一页', // prev 按钮的文本内容
+        nextText: '下一页', // next 按钮的文本内容
+        callback: function (current) { // 每一个页数按钮的回调事件
+            console.log(current)
+            location.href="/house/show?pageNo="+current;
+        }
+    });
+
+    //td中文本垂直居中
+    $("table tr td").attr("class","am-text-middle")
+
+</script>
+</html>

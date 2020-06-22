@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <link rel="stylesheet" th:href="@{/amazeui/assets/css/amazeui.css}"/>
+    <script  th:src="@{/amazeui/assets/js/jquery.min.js}"></script>
+    <script  th:src="@{/amazeui/assets/js/amazeui.js}"></script>
+    <script  th:src="@{/amazeui/pagination/amazeui-pagination.js}"></script>
+
+</head>
+<body>
+
+<!-- 链接触发器， href 属性为目标元素 ID -->
+<!--<a href="#doc-oc-demo1" data-am-offcanvas>点击显示侧边栏</a>-->
+
+<!-- 侧边栏内容 -->
+<div id="doc-oc-demo1" class="am-offcanvas">
+    <div class="am-offcanvas-bar">
+        <div class="am-offcanvas-content">
+            <p><a href="javascript:void(0)" onclick="show1('/users/show')">用户维护</a></p>
+            <p><a href="javascript:void(0)" onclick="show1('/house/show')">房源维护</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="admin-content"></div>
+
+</body>
+<script>
+    $('#doc-oc-demo1').offCanvas({effect: 'push'});
+
+    function show1(path) {
+        $("#admin-content").load(path)
+    }
+</script>
+</html>
