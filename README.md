@@ -29,3 +29,16 @@
 - mysql5.7
 - maven3
 - navicat 
+## 使用springboot搭建的超市账单管理系统
+### 技术选型
+- 前端选用thymeleaf模版技术+amazeUI框架
+- 后端选用springboot结合mybatils框架
+- MySQL数据库
+- maven管理项目依赖
+- druid连接池
+- 使用fastjson前端封装库
+### 相关工具软件
+- idea2019.3
+- mysql5.7
+- maven3
+- navicat 
